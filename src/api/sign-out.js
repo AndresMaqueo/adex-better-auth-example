@@ -7,9 +7,12 @@ import { auth } from "../../lib/auth";
  * @returns
  */
 export default async function (req, res) {
-  const session = await auth.api.getSession({
+  const session = await auth.api.signOut({
     headers: fromNodeHeaders(req.headers),
   });
 
-  return res.json(session);
+  res.writeHead(303, {
+    Location: "/login",
+  });
+  res.end();
 }
