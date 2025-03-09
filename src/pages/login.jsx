@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "@/lib/toast";
 
 export default () => {
   useEnforceUnAuthenticated();
@@ -23,10 +24,14 @@ export default () => {
         email: form.get("email"),
         password: form.get("password"),
       });
-      if (result.data.token) {
+      if (result.error) {
+        toast(result.error.message);
+      } else if (result.data.token) {
         window.location.href = "/app";
       }
-    } catch (err) {}
+    } catch (err) {
+      toast("Oops! Something went wrong...");
+    }
   };
 
   return (

@@ -24,10 +24,15 @@ export default () => {
         email: form.get("email"),
         password: form.get("password"),
       });
-      if (result.data.token) {
+      if (result.error) {
+        toast(result.error?.message);
+      } else if (result.data.token) {
+        toast("Logging you in...");
         window.location.href = "/app";
       }
-    } catch (err) {}
+    } catch (err) {
+      toast("Oops! Something went wrong...");
+    }
   };
 
   return (
