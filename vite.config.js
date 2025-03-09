@@ -4,7 +4,12 @@ import preact from "@preact/preset-vite";
 import path from "node:path";
 
 export default defineConfig({
-  plugins: [adex(), preact()],
+  plugins: [
+    adex({
+      islands: false,
+    }),
+    preact(),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
