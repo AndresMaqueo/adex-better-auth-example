@@ -15,7 +15,7 @@
   "dependencies": {
     "@preact/preset-vite": "^2.9.0",
     "@preact/signals": "^2.0.1",
-    "@prisma/client": "6.4.1",
+    "@prisma/client": "6.17.1",
     "adex": "^0.0.18-alpha.4",
     "better-auth": "^1.2.10",
     "better-sqlite3": "^11.8.1",
